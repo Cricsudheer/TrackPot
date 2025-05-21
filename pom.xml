@@ -13,18 +13,31 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>trackpot</name>
 	<description>Track your pot</description>
-	<url/>
+	<url>https://github.com/Cricsudheer/TrackPot</url>
 	<licenses>
-		<license/>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+			<distribution>repo</distribution>
+		</license>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<id>cricsudheer</id>
+			<name>Sudheer</name>
+			<email>sudheer@example.com</email>
+			<url>https://github.com/Cricsudheer</url>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:https://github.com/Cricsudheer/TrackPot.git</connection>
+		<developerConnection>scm:git:git@github.com:Cricsudheer/TrackPot.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/Cricsudheer/TrackPot</url>
 	</scm>
 	<properties>
 		<java.version>17</java.version>

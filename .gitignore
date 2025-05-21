@@ -31,3 +31,28 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Compiled class files ###
+*.class
+
+### Log files ###
+*.log
+
+### OS specific files ###
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Application properties with sensitive information ###
+application-local.properties
+application-dev-local.properties
+application-prod-local.properties
+
+### Database ###
+*.db
+*.sqlite
+*.sqlite3
+
+### Logs directory ###
+logs/
