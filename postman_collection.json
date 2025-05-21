@@ -1,0 +1,337 @@
+{
+  "info": {
+    "name": "TrackPot API",
+    "description": "API for tracking snooker matches and scores",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12345678"
+  },
+  "item": [
+    {
+      "name": "Players",
+      "description": "Endpoints for managing players",
+      "item": [
+        {
+          "name": "Get all players",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/players",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "players"]
+            },
+            "description": "Returns a list of all players"
+          },
+          "response": []
+        },
+        {
+          "name": "Get player by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/players/{{playerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "players", "{{playerId}}"]
+            },
+            "description": "Returns a player as per the ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create player",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Smith\",\n    \"avatarUrl\": \"https://example.com/avatar.jpg\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/players",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "players"]
+            },
+            "description": "Creates a new player and returns the created player"
+          },
+          "response": []
+        },
+        {
+          "name": "Update player",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Smith Updated\",\n    \"avatarUrl\": \"https://example.com/avatar-updated.jpg\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/players/{{playerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "players", "{{playerId}}"]
+            },
+            "description": "Updates a player and returns the updated player"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete player",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/players/{{playerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "players", "{{playerId}}"]
+            },
+            "description": "Deletes a player"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Matches",
+      "description": "Endpoints for managing matches",
+      "item": [
+        {
+          "name": "Get all matches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches"]
+            },
+            "description": "Returns a list of all matches"
+          },
+          "response": []
+        },
+        {
+          "name": "Get match by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/{{matchId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "{{matchId}}"]
+            },
+            "description": "Returns a match as per the ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Get matches by player ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/player/{{playerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "player", "{{playerId}}"]
+            },
+            "description": "Returns a list of matches for a specific player"
+          },
+          "response": []
+        },
+        {
+          "name": "Create match",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"player1Id\": \"{{player1Id}}\",\n    \"player2Id\": \"{{player2Id}}\",\n    \"bestOfFrames\": 7,\n    \"startTime\": \"2023-06-15T10:15:30Z\",\n    \"status\": \"NOT_STARTED\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/matches",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches"]
+            },
+            "description": "Creates a new match and returns the created match"
+          },
+          "response": []
+        },
+        {
+          "name": "Update match",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"player1Id\": \"{{player1Id}}\",\n    \"player2Id\": \"{{player2Id}}\",\n    \"bestOfFrames\": 7,\n    \"startTime\": \"2023-06-15T10:15:30Z\",\n    \"endTime\": \"2023-06-15T12:30:45Z\",\n    \"status\": \"IN_PROGRESS\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/{{matchId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "{{matchId}}"]
+            },
+            "description": "Updates a match and returns the updated match"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete match",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/{{matchId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "{{matchId}}"]
+            },
+            "description": "Deletes a match"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "description": "Endpoints for health checks",
+      "item": [
+        {
+          "name": "Check database connection",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health/db",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health", "db"]
+            },
+            "description": "Tests the database connection by executing a simple query"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "WebSocket",
+      "description": "WebSocket endpoints for real-time updates",
+      "item": [
+        {
+          "name": "Connect to WebSocket",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws"]
+            },
+            "description": "Connect to the WebSocket endpoint"
+          },
+          "response": []
+        },
+        {
+          "name": "Send score update",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"frameId\": \"{{frameId}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"points\": 7\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/app/score",
+              "host": ["{{baseUrl}}"],
+              "path": ["app", "score"]
+            },
+            "description": "Send a score update to the WebSocket endpoint"
+          },
+          "response": []
+        },
+        {
+          "name": "Subscribe to score updates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/topic/match.{{frameId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["topic", "match.{{frameId}}"]
+            },
+            "description": "Subscribe to score updates for a specific frame"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "playerId",
+      "value": "123e4567-e89b-12d3-a456-426614174000",
+      "type": "string"
+    },
+    {
+      "key": "player1Id",
+      "value": "123e4567-e89b-12d3-a456-426614174000",
+      "type": "string"
+    },
+    {
+      "key": "player2Id",
+      "value": "123e4567-e89b-12d3-a456-426614174001",
+      "type": "string"
+    },
+    {
+      "key": "matchId",
+      "value": "123e4567-e89b-12d3-a456-426614174002",
+      "type": "string"
+    },
+    {
+      "key": "frameId",
+      "value": "123e4567-e89b-12d3-a456-426614174003",
+      "type": "string"
+    }
+  ]
+}
