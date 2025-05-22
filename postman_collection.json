@@ -116,7 +116,31 @@
             },
             "description": "Returns a list of all matches"
           },
-          "response": []
+          "response": [
+            {
+              "name": "Example Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/matches",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "matches"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"{{matchId}}\",\n        \"player1\": {\n            \"id\": \"{{player1Id}}\",\n            \"name\": \"John Smith\",\n            \"avatarUrl\": \"https://example.com/avatar1.jpg\"\n        },\n        \"player2\": {\n            \"id\": \"{{player2Id}}\",\n            \"name\": \"Jane Doe\",\n            \"avatarUrl\": \"https://example.com/avatar2.jpg\"\n        },\n        \"bestOfFrames\": 7,\n        \"startTime\": \"2023-06-15T10:15:30Z\",\n        \"endTime\": \"2023-06-15T12:30:45Z\",\n        \"status\": \"IN_PROGRESS\",\n        \"player1Score\": 3,\n        \"player2Score\": 2,\n        \"frameIds\": [\n            \"123e4567-e89b-12d3-a456-426614174003\",\n            \"123e4567-e89b-12d3-a456-426614174004\",\n            \"123e4567-e89b-12d3-a456-426614174005\"\n        ]\n    },\n    {\n        \"id\": \"123e4567-e89b-12d3-a456-426614174008\",\n        \"player1\": {\n            \"id\": \"123e4567-e89b-12d3-a456-426614174009\",\n            \"name\": \"Mark Williams\",\n            \"avatarUrl\": \"https://example.com/avatar3.jpg\"\n        },\n        \"player2\": {\n            \"id\": \"123e4567-e89b-12d3-a456-426614174010\",\n            \"name\": \"Ronnie O'Sullivan\",\n            \"avatarUrl\": \"https://example.com/avatar4.jpg\"\n        },\n        \"bestOfFrames\": 11,\n        \"startTime\": \"2023-06-16T14:00:00Z\",\n        \"endTime\": null,\n        \"status\": \"NOT_STARTED\",\n        \"player1Score\": 0,\n        \"player2Score\": 0,\n        \"frameIds\": []\n    }\n]"
+            }
+          ]
         },
         {
           "name": "Get match by ID",
@@ -130,7 +154,31 @@
             },
             "description": "Returns a match as per the ID"
           },
-          "response": []
+          "response": [
+            {
+              "name": "Example Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/matches/{{matchId}}",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "matches", "{{matchId}}"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"{{matchId}}\",\n    \"player1\": {\n        \"id\": \"{{player1Id}}\",\n        \"name\": \"John Smith\",\n        \"avatarUrl\": \"https://example.com/avatar1.jpg\"\n    },\n    \"player2\": {\n        \"id\": \"{{player2Id}}\",\n        \"name\": \"Jane Doe\",\n        \"avatarUrl\": \"https://example.com/avatar2.jpg\"\n    },\n    \"bestOfFrames\": 7,\n    \"startTime\": \"2023-06-15T10:15:30Z\",\n    \"endTime\": \"2023-06-15T12:30:45Z\",\n    \"status\": \"IN_PROGRESS\",\n    \"player1Score\": 3,\n    \"player2Score\": 2,\n    \"frameIds\": [\n        \"123e4567-e89b-12d3-a456-426614174003\",\n        \"123e4567-e89b-12d3-a456-426614174004\",\n        \"123e4567-e89b-12d3-a456-426614174005\",\n        \"123e4567-e89b-12d3-a456-426614174006\",\n        \"123e4567-e89b-12d3-a456-426614174007\"\n    ]\n}"
+            }
+          ]
         },
         {
           "name": "Get matches by player ID",
@@ -144,7 +192,31 @@
             },
             "description": "Returns a list of matches for a specific player"
           },
-          "response": []
+          "response": [
+            {
+              "name": "Example Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/matches/player/{{playerId}}",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "matches", "player", "{{playerId}}"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"{{matchId}}\",\n        \"player1\": {\n            \"id\": \"{{playerId}}\",\n            \"name\": \"John Smith\",\n            \"avatarUrl\": \"https://example.com/avatar1.jpg\"\n        },\n        \"player2\": {\n            \"id\": \"{{player2Id}}\",\n            \"name\": \"Jane Doe\",\n            \"avatarUrl\": \"https://example.com/avatar2.jpg\"\n        },\n        \"bestOfFrames\": 7,\n        \"startTime\": \"2023-06-15T10:15:30Z\",\n        \"endTime\": \"2023-06-15T12:30:45Z\",\n        \"status\": \"IN_PROGRESS\",\n        \"player1Score\": 3,\n        \"player2Score\": 2,\n        \"frameIds\": [\n            \"123e4567-e89b-12d3-a456-426614174003\",\n            \"123e4567-e89b-12d3-a456-426614174004\",\n            \"123e4567-e89b-12d3-a456-426614174005\"\n        ]\n    },\n    {\n        \"id\": \"123e4567-e89b-12d3-a456-426614174011\",\n        \"player1\": {\n            \"id\": \"123e4567-e89b-12d3-a456-426614174012\",\n            \"name\": \"Mark Williams\",\n            \"avatarUrl\": \"https://example.com/avatar3.jpg\"\n        },\n        \"player2\": {\n            \"id\": \"{{playerId}}\",\n            \"name\": \"John Smith\",\n            \"avatarUrl\": \"https://example.com/avatar1.jpg\"\n        },\n        \"bestOfFrames\": 5,\n        \"startTime\": \"2023-06-14T09:00:00Z\",\n        \"endTime\": \"2023-06-14T11:15:30Z\",\n        \"status\": \"COMPLETED\",\n        \"player1Score\": 1,\n        \"player2Score\": 3,\n        \"frameIds\": [\n            \"123e4567-e89b-12d3-a456-426614174013\",\n            \"123e4567-e89b-12d3-a456-426614174014\",\n            \"123e4567-e89b-12d3-a456-426614174015\",\n            \"123e4567-e89b-12d3-a456-426614174016\"\n        ]\n    }\n]"
+            }
+          ]
         },
         {
           "name": "Create match",
@@ -167,7 +239,40 @@
             },
             "description": "Creates a new match and returns the created match"
           },
-          "response": []
+          "response": [
+            {
+              "name": "Example Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"player1Id\": \"{{player1Id}}\",\n    \"player2Id\": \"{{player2Id}}\",\n    \"bestOfFrames\": 7,\n    \"startTime\": \"2023-06-15T10:15:30Z\",\n    \"status\": \"NOT_STARTED\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/matches",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "matches"]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"{{matchId}}\",\n    \"player1\": {\n        \"id\": \"{{player1Id}}\",\n        \"name\": \"John Smith\",\n        \"avatarUrl\": \"https://example.com/avatar1.jpg\"\n    },\n    \"player2\": {\n        \"id\": \"{{player2Id}}\",\n        \"name\": \"Jane Doe\",\n        \"avatarUrl\": \"https://example.com/avatar2.jpg\"\n    },\n    \"bestOfFrames\": 7,\n    \"startTime\": \"2023-06-15T10:15:30Z\",\n    \"endTime\": null,\n    \"status\": \"NOT_STARTED\",\n    \"player1Score\": 0,\n    \"player2Score\": 0,\n    \"frameIds\": []\n}"
+            }
+          ]
         },
         {
           "name": "Update match",
@@ -190,7 +295,40 @@
             },
             "description": "Updates a match and returns the updated match"
           },
-          "response": []
+          "response": [
+            {
+              "name": "Example Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"player1Id\": \"{{player1Id}}\",\n    \"player2Id\": \"{{player2Id}}\",\n    \"bestOfFrames\": 7,\n    \"startTime\": \"2023-06-15T10:15:30Z\",\n    \"endTime\": \"2023-06-15T12:30:45Z\",\n    \"status\": \"IN_PROGRESS\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/matches/{{matchId}}",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "matches", "{{matchId}}"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"{{matchId}}\",\n    \"player1\": {\n        \"id\": \"{{player1Id}}\",\n        \"name\": \"John Smith\",\n        \"avatarUrl\": \"https://example.com/avatar1.jpg\"\n    },\n    \"player2\": {\n        \"id\": \"{{player2Id}}\",\n        \"name\": \"Jane Doe\",\n        \"avatarUrl\": \"https://example.com/avatar2.jpg\"\n    },\n    \"bestOfFrames\": 7,\n    \"startTime\": \"2023-06-15T10:15:30Z\",\n    \"endTime\": \"2023-06-15T12:30:45Z\",\n    \"status\": \"IN_PROGRESS\",\n    \"player1Score\": 3,\n    \"player2Score\": 2,\n    \"frameIds\": [\n        \"123e4567-e89b-12d3-a456-426614174003\",\n        \"123e4567-e89b-12d3-a456-426614174004\",\n        \"123e4567-e89b-12d3-a456-426614174005\",\n        \"123e4567-e89b-12d3-a456-426614174006\",\n        \"123e4567-e89b-12d3-a456-426614174007\"\n    ]\n}"
+            }
+          ]
         },
         {
           "name": "Delete match",

@@ -4,8 +4,8 @@ This document contains a comprehensive list of actionable improvement tasks for 
 
 ## Architecture and Design
 
-- [ ] 1. Implement a service layer between repositories and controllers to encapsulate business logic
-- [ ] 2. Create DTOs for all entities to separate persistence models from API contracts
+- [x] 1. Implement a service layer between repositories and controllers to encapsulate business logic
+- [x] 2. Create DTOs for all entities to separate persistence models from API contracts
 - [ ] 3. Implement proper exception handling with custom exceptions and a global exception handler
 - [ ] 4. Add API documentation using Springdoc OpenAPI (Swagger)
 - [ ] 5. Implement request validation using Bean Validation (JSR 380)
@@ -20,7 +20,6 @@ This document contains a comprehensive list of actionable improvement tasks for 
 - [ ] 11. Implement proper logging throughout the application using SLF4J
 - [ ] 12. Add code quality tools (Checkstyle, PMD, SpotBugs) to the build process
 - [ ] 13. Standardize code formatting with a code formatter configuration
-- [ ] 14. Fix the inconsistency between V1__.sql and v1_intial_setup_db.sql migration scripts
 
 ## Testing
 

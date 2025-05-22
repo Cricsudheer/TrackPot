@@ -1,8 +1,14 @@
 package com.example.trackpot.controller;
 
 import com.example.trackpot.cqrs.command.CreatePlayerCommand;
+import com.example.trackpot.cqrs.command.DeletePlayerCommand;
+import com.example.trackpot.cqrs.command.UpdatePlayerCommand;
 import com.example.trackpot.cqrs.command.handler.CreatePlayerCommandHandler;
+import com.example.trackpot.cqrs.command.handler.DeletePlayerCommandHandler;
+import com.example.trackpot.cqrs.command.handler.UpdatePlayerCommandHandler;
+import com.example.trackpot.cqrs.query.GetAllPlayersQuery;
 import com.example.trackpot.cqrs.query.GetPlayerByIdQuery;
+import com.example.trackpot.cqrs.query.handler.GetAllPlayersQueryHandler;
 import com.example.trackpot.cqrs.query.handler.GetPlayerByIdQueryHandler;
 import com.example.trackpot.dto.player.PlayerRequestDto;
 import com.example.trackpot.dto.player.PlayerResponseDto;
@@ -38,7 +44,10 @@ public class PlayerController {
     private final PlayerService playerService;
     private final PlayerMapper playerMapper;
     private final CreatePlayerCommandHandler createPlayerCommandHandler;
+    private final UpdatePlayerCommandHandler updatePlayerCommandHandler;
+    private final DeletePlayerCommandHandler deletePlayerCommandHandler;
     private final GetPlayerByIdQueryHandler getPlayerByIdQueryHandler;
+    private final GetAllPlayersQueryHandler getAllPlayersQueryHandler;
 
     /**
      * GET /api/players : Get all players
@@ -49,8 +58,9 @@ public class PlayerController {
     @Operation(summary = "Get all players", description = "Returns a list of all players")
     @ApiResponse(responseCode = "200", description = "Successfully retrieved players")
     public ResponseEntity<List<PlayerResponseDto>> getAllPlayers() {
-        List<Player> players = playerService.getAllPlayers();
-        return ResponseEntity.ok(playerMapper.toDtoList(players));
+        GetAllPlayersQuery query = new GetAllPlayersQuery();
+        List<PlayerResponseDto> players = getAllPlayersQueryHandler.handle(query);
+        return ResponseEntity.ok(players);
     }
 
     /**
@@ -126,9 +136,21 @@ public class PlayerController {
             @PathVariable UUID id,
             @Parameter(description = "Updated player details", required = true)
             @Valid @RequestBody PlayerRequestDto playerRequestDto) {
-        Player player = playerMapper.toEntity(playerRequestDto);
-        Player updatedPlayer = playerService.updatePlayer(id, player);
-        return ResponseEntity.ok(playerMapper.toDto(updatedPlayer));
+        // Create a command from the request DTO
+        UpdatePlayerCommand command = UpdatePlayerCommand.builder()
+                .id(id)
+                .name(playerRequestDto.getName())
+                .avatarUrl(playerRequestDto.getAvatarUrl())
+                .build();
+
+        // Handle the command
+        updatePlayerCommandHandler.handle(command);
+
+        // Retrieve the updated player
+        GetPlayerByIdQuery query = new GetPlayerByIdQuery(id);
+        PlayerResponseDto playerDto = getPlayerByIdQueryHandler.handle(query);
+
+        return ResponseEntity.ok(playerDto);
     }
 
     /**
@@ -148,7 +170,12 @@ public class PlayerController {
     public ResponseEntity<Void> deletePlayer(
             @Parameter(description = "ID of the player to delete", required = true)
             @PathVariable UUID id) {
-        playerService.deletePlayer(id);
+        // Create a command
+        DeletePlayerCommand command = new DeletePlayerCommand(id);
+
+        // Handle the command
+        deletePlayerCommandHandler.handle(command);
+
         return ResponseEntity.noContent().build();
     }
 }
